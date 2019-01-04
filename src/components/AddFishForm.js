@@ -18,6 +18,7 @@ createFish = (event) => {
     imageRef: this.imageRef.current.value
   }
   this.props.addFish(fish);
+  event.currentTarget.reset();
 };
   render() {
     return (
