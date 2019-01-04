@@ -8,17 +8,17 @@ descRef = React.createRef();
 imageRef = React.createRef();
 
 
-  createFish = (event) => {
-    event.preventDefault();
-    const fish = {
-      nameRef: this.nameRef.current.value,
-      pirceRef: this.priceRef.current.value,
-      statusRef: this.statusRef.current.value,
-      descRef: this.descRef.current.value,
-      imageRef: this.imageRef.current.value,
-    }
-    console.log(fish);
+createFish = (event) => {
+  event.preventDefault();
+  const fish = {
+    nameRef: this.nameRef.current.value,
+    pirceRef: parseFloat(this.priceRef.current.value),
+    statusRef: this.statusRef.current.value,
+    descRef: this.descRef.current.value,
+    imageRef: this.imageRef.current.value
   }
+  this.props.addFish(fish);
+};
   render() {
     return (
       <form className="fish-edit" onSubmit={this.createFish}>
