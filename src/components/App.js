@@ -49,6 +49,16 @@ componentWillUnmount(){
     this.setState({ fishes});
   };
 
+
+deleteFish = (key) => {
+  // Take a copy of the current state
+  const fishes = { ...this.state.fishes };
+  // Update that state
+  fishes[key] = null;
+  // UPdate that to state
+  this.setState({ fishes });
+} 
+
 loadSampleFishes = () => {
   this.setState({ fishes: sampleFishes });
 };
@@ -57,8 +67,16 @@ addToOrder = (key) => {
   const order = { ...this.state.order };
   order[key] = order[key] + 1 || 1 ;
   this.setState({ order });
-
 };
+
+removeFromOrder = (key) => {
+  // Take a copy of the current state
+  const order = { ...this.state.order };
+  // Update that state
+  delete order[key];
+  // UPdate that to state
+  this.setState({ order });
+} 
 
   render() {
     return (
@@ -76,9 +94,10 @@ addToOrder = (key) => {
               ))}
             </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order}/>
+        <Order fishes={this.state.fishes} order={this.state.order} removeFromOrder={this.removeFromOrder}/>
         {/* <Order {...this.state} />         */}
         <Inventory
+          deleteFish={this.deleteFish}
           updateFish={this.updateFish}
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
