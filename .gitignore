@@ -1,3 +1,2 @@
 /node_modules
-/helpers/apiKeys.js
-
+/src/helpers/apiKeys.js
