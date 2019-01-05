@@ -1,0 +1,10 @@
+import Rebase from 're-base';
+import firebaseApp from '../helpers/apiKeys'
+
+const firebaseApp = firebase.initializeApp({
+    apiKey: "",
+    authDomain: "",
+    databaseURL: ""
+});
+
+export default firebaseApp ;
