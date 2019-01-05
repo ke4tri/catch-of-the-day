@@ -43,6 +43,12 @@ componentWillUnmount(){
     });
   };
 
+  updateFish = (key, updatedFish) => {
+    const fishes = { ...this.state.fishes };
+    fishes[key] = updatedFish;
+    this.setState({ fishes});
+  };
+
 loadSampleFishes = () => {
   this.setState({ fishes: sampleFishes });
 };
@@ -73,6 +79,7 @@ addToOrder = (key) => {
         <Order fishes={this.state.fishes} order={this.state.order}/>
         {/* <Order {...this.state} />         */}
         <Inventory
+          updateFish={this.updateFish}
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
