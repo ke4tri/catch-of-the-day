@@ -75,6 +75,7 @@ addToOrder = (key) => {
         <Inventory
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
           /> 
       </div>
     )
