@@ -37,8 +37,8 @@ loadSampleFishes = () => {
             </ul>
         </div>
         <Order />
-        <Inventory 
-          addFish={this.addFish} 
+        <Inventory
+          addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
           /> 
       </div>
