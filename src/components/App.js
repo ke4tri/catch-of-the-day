@@ -4,6 +4,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import sampleFishes from "../sample-fishes";
 import Fish from './Fish';
+import base from "../base";
 
 class App extends React.Component {
   // where the state is held
@@ -11,6 +12,13 @@ class App extends React.Component {
     fishes: {},
     order: {},
   };
+componentDidMount() {
+  const { params } = this.props.match;
+  this.ref = base.syncState(`${params.storeId}/fishes/`, {
+    context: this,
+    state: 'fishes'
+  });
+}
 
   // what is used to update the state
   addFish = fish => {
@@ -39,14 +47,14 @@ addToOrder = (key) => {
         <div className="menu">
           <Header tagline="Fresh Seafood Market" />
             <ul className="fishes">
-              {Object.keys(this.state.fishes).map(key => 
+              {Object.keys(this.state.fishes).map(key => (
               <Fish 
                 key={key}
                 index={key}
                 details={this.state.fishes[key]} 
                 addToOrder={this.addToOrder} 
               />
-              )}
+              ))}
             </ul>
         </div>
         <Order fishes={this.state.fishes} order={this.state.order}/>
