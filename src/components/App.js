@@ -7,7 +7,6 @@ import Fish from './Fish';
 import base from "../base";
 
 class App extends React.Component {
-  // where the state is held
   state = {
     fishes: {},
     order: {},
