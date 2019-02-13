@@ -13,7 +13,7 @@ class AddFishForm extends React.Component {
   };
 
   createFish = event => {
-    // 1.  stop the form from submitting
+    //  stop the form from submitting with preventDefault
     event.preventDefault();
     const fish = {
       name: this.nameRef.current.value,

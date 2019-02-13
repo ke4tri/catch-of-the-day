@@ -29,17 +29,14 @@ class Inventory extends React.Component {
   }
 
   authHandler = async authData => {
-    // 1 .Look up the current store in the firebase database
     const store = await base.fetch(this.props.storeId, { context: this });
     console.log(store);
-    // 2. Claim it if there is no owner
     if (!store.owner) {
       // save it as our own
       await base.post(`${this.props.storeId}/owner`, {
         data: authData.user.uid
       });
     }
-    // 3. Set the state of the inventory component to reflect the current user
     this.setState({
       uid: authData.user.uid,
       owner: store.owner || authData.user.uid
@@ -63,12 +60,11 @@ class Inventory extends React.Component {
   render() {
     const logout = <button onClick={this.logout}>Log Out!</button>;
 
-    // 1. Check if they are logged in
     if (!this.state.uid) {
       return <Login authenticate={this.authenticate} />;
     }
 
-    // 2. check if they are not the owner of the store
+    // check if they are not the owner of the store
     if (this.state.uid !== this.state.owner) {
       return (
         <div>
@@ -78,7 +74,7 @@ class Inventory extends React.Component {
       );
     }
 
-    // 3. They must be the owner, just render the inventory
+    // They must be the owner, just render the inventory
     return (
       <div className="inventory">
         <h2>Inventory</h2>
