@@ -1,5 +1,5 @@
 # CATCH OF THE DAY
-## This was a code along completed throught Wes Bos's "React for beginners".  There was a big concentration on 'State' and great simple examples on three auth methods with FireBase (Twitter, Facebook, GitHub).
+## This was a code along completed through Wes Bos's "React for beginners". There was a big concentration on 'State' and great simple examples on three auth methods with FireBase (Twitter, Facebook, GitHub).
 
 ## DEPLOYED SITE :
   - https://catch-of-the-day-wayne-23e18.firebaseapp.com/
